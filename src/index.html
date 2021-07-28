@@ -2,9 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TicTacToe</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+<div class="jumbotron text-center">
+    <h1>TicTacToe</h1>
+    <p>Spiele jetzt TicTacToe gegen deine Freunde!</p>
+</div>
+
+<div class="container js--container">
+    <div class="row">
+        <div class="col-sm-3">
+            <section class="columns__playerone js--columns__playerone"></section>
+        </div>
+        <div class="col-sm-6">
+            <p class="js--ticker ticker"></p>
+            <div class="columns__gameboard js--gameboard"></div>
+        </div>
+        <div class="col-sm-3">
+            <div class="columns__playertwo">
+                <p><h2>Player 2</h2></p>
+                <ul>
+                    <li class="js--columns__playertwo--name"></li>
+                    <li class="js--columns__playertwo--uname"></li>
+                    <li class="js--columns__playertwo--email"></li>
+                </ul>
+            </div>
+            <section class="rangliste js--rangliste">
+                <p><h3>Rangliste</h3></p>
+                <ol>
+                    <li>Cyril</li>
+                    <li>Max</li>
+                    <li>Hans</li>
+                </ol>
+            </section>
+        </div>
+    </div>
+    <div class="columns">
+        <button class="btn btn-default js--button__replay button__replay">Replay</button>
+        <button class="btn btn-default js--button__add button__add">Add new Player</button>
+    </div>
+</div>
+<section class="formular js--formular"></section>
+
+<script type="module" src="control.js">
+</script>
+<script type="module" src="formular.js">
+</script>
 
 </body>
 </html>

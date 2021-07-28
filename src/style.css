@@ -1,0 +1,90 @@
+.title {
+    text-align: center;
+}
+
+.columns__gameboard {
+    width: 30rem;
+    height: 30rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: auto;
+}
+
+.gameboard__button {
+    width: 10rem;
+    height: 10rem;
+    background-color: white;
+    background-size: cover;
+    border: 1px solid black;
+    margin: 0;
+}
+
+.gameboard__button--x {
+    background-size: cover;
+    background-image: url('../img/x.png');
+}
+
+.gameboard__button--o {
+    background-size: cover;
+    background-image: url('../img/o.png');
+}
+
+.formular {
+    margin-bottom: 2rem;
+}
+
+.ticker {
+    text-align: center;
+    height: 3rem;
+    color: #141619;
+}
+
+.columns {
+    display: flex;
+}
+
+.columns__playerone {
+    margin: auto auto auto;
+    color: skyblue;
+}
+
+.columns__playertwo {
+    margin: auto auto auto;
+    color: seagreen;
+}
+
+.button__replay {
+    margin: 2rem 0 auto auto;
+    width: 15rem;
+}
+
+.button__add {
+    margin: 2rem auto auto 0;
+    width: 15rem;
+}
+
+.form {
+    position: absolute;
+    margin: 5rem;
+    display: block;
+}
+
+.form__hide {
+    display: none;
+}
+
+.container {
+    display: block;
+}
+
+.container__hide {
+    display: none;
+}
+.rangliste {
+    margin-top:  38rem;
+    position: absolute;
+}
+.rangliste__hide {
+    display: none;
+}
