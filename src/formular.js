@@ -1,14 +1,15 @@
 import {players, addPlayer, player} from './player.js';
 
 const renderEl = document.querySelector('.js--formular');
-const renderEl2 = document.querySelector('.js--columns__playerone');
-
+const renderEl2 = document.querySelector('.columns__player--one');
+/*
 const renderButtonSubmit = ({buttonName, name, email}) =>
-    `<button type='submit' class='btn btn-default js--button__submit'>${buttonName}</button>`;
+    `<button type='submit' class='btn btn-default js--button__submit'>${buttonName}</button>`;*/
 
-const renderForm = () => {
+const renderFormHTML = () => {
+    // TODO: make hide as modifier
     renderEl.innerHTML =
-        `<form class='form js--form'>
+        `<form class='form js--form form--hide' action='#' onsubmit='submitForm();return false'>
    <div>
      <label>Benutzername:
        <input type='text' name='uname' value='Cyrilo' class='js--form__uname'>
@@ -47,37 +48,60 @@ const renderForm = () => {
      </label>
    </div>
    <div>
-   ${renderButtonSubmit({
-            buttonName: 'player1'
-        })}
-
-     
+     <button type='submit' class='btn btn-default js--button__submit'>Submit</button>
      <button type='button' class='btn btn-default js--button__back'>Back</button>
    </div>
  </form> `;
 }
-const renderForm = () => {
-    document.querySelector('.js--button__submit').addEventListener('click', submitForm);
+
+
+/*${renderButtonSubmit({
+         buttonName: 'player1'
+     })
+*/
+export const renderForm = () => {
+    renderFormHTML();
     document.querySelector('.js--button__back').addEventListener('click', hideForm);
     document.querySelector('.js--form__uname').addEventListener('keyup', onKeyUp);
+
 }
 
-renderForm();
-
-const hideForm = () => {
-    document.getElementsByClassName('js--form')[0].classList.add('form__hide');
-    document.getElementsByClassName('js--container')[0].classList.remove('container__hide');
-    document.getElementsByClassName('js--rangliste')[0].classList.remove('rangliste__hide');
+export const hideForm = () => {
+    document.getElementsByClassName('js--form')[0].classList.add('form--hide');
+    document.getElementsByClassName('js--container')[0].classList.remove('container--hide');
+}
+export const showForm = () => {
+    document.getElementsByClassName('js--form')[0].classList.remove('form--hide');
+    document.getElementsByClassName('js--container')[0].classList.add('container--hide');
 }
 /*    renderPlayer = () => {
-        hideForm();
     }*/
 //COMPOSITION
 const submitForm = () => {
     console.log('submit');
+    const data = new FormData(e.currentTarget);
+    let obj = {};
+
+    for (let [key, value] of data) {
+        obj[key] = value;
+    }
+    console.log(obj);
+    if (players.includes(obj.uname)) {
+        obj = null;
+    } else {
+        addPlayer(obj);
+    }
+    console.log(players);
+/*
+    addPlayer()
+*/
+    renderEl2.classList.add('columns__player--one');
+
+    const player1 = players[players.length-1].uname;
+    renderEl2.innerHTML = `<p><h2>${player1}</h2></p>`;
+
     hideForm();
 }
-
 
 const onKeyUp = (e1) => {
     const usernames = [];
@@ -112,6 +136,12 @@ const onKeyUp = (e1) => {
     }
 }
 
+/*renderForm();*/
+/*
+document.querySelector('.js--button__submit').addEventListener('click',){
+
+}
+
 document.querySelector('.js--form').addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
@@ -128,3 +158,4 @@ document.querySelector('.js--form').addEventListener('submit', (e) => {
     }
     console.log(players);
 });
+*/

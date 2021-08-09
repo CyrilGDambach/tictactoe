@@ -43,14 +43,12 @@
 .columns {
     display: flex;
 }
-
-.columns__playerone {
+.container__player{
     margin: auto auto auto;
     color: skyblue;
 }
 
-.columns__playertwo {
-    margin: auto auto auto;
+.columns__player--two {
     color: seagreen;
 }
 
@@ -70,7 +68,7 @@
     display: block;
 }
 
-.form__hide {
+.form--hide {
     display: none;
 }
 
@@ -78,13 +76,11 @@
     display: block;
 }
 
-.container__hide {
+.container--hide {
     display: none;
 }
+
 .rangliste {
-    margin-top:  38rem;
+    margin-top: 38rem;
     position: absolute;
-}
-.rangliste__hide {
-    display: none;
 }

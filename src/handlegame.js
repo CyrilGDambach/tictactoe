@@ -24,6 +24,7 @@ const handleGame = ({target}, render) => {
                 console.log(turn);
                 console.log('player 1 has won!');
                 setTicker('Player 1 hat gewonnen.');
+
             }
             if (turn === 1) {
                 console.log(turn);
@@ -39,7 +40,8 @@ const handleGame = ({target}, render) => {
         }
 
     }
-/*    console.log(game.buttons + ' ----- ' + game.buttons.length);*/
+    /*    console.log(game.buttons + ' ----- ' + game.buttons.length);*/
+    console.log(game);
     render(game);
 };
 export default handleGame;

@@ -19,7 +19,10 @@ const makeDomElButton = (entry, index) => {
 
 }
 const render = ({buttons}) => {
-    const renderEl = document.querySelector('.js--gameboard')
+    document.getElementsByClassName('js--container')[0].classList.remove('container__hide');
+
+    const renderEl = document.querySelector('.js--gameboard');
+    console.log(renderEl);
     renderEl.innerHTML = '';
     /*
         renderEl.style.display = "none";

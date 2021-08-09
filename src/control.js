@@ -1,20 +1,28 @@
 import render from "./view.js"
 import {setTicker} from "./ticker.js";
-// import {getPlayers} from "./player";
+import {getGame} from "./game.js";
+import {initNewGame} from "./game.js";
+import {renderForm, showForm} from "./formular.js";
+import {renderRankHTML} from "./rangliste.js";
+// import {gtPlayers} from "./player";
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    document.getElementsByClassName('js--form')[0].classList.add('form__hide');
-    console.log("test");
+    console.log("test")
+
+    console.log("test2");
+    initNewGame();
     render(getGame());
+    renderForm();
+    renderRankHTML();
     document.querySelector('.js--button__replay').addEventListener('click', (e) => {
         initNewGame();
         render(getGame());
         setTicker('Player 1 startet');
     });
     document.querySelector('.js--button__add').addEventListener('click', (e) => {
-        document.getElementsByClassName('js--container')[0].classList.add('container__hide');
-        document.getElementsByClassName('js--form')[0].classList.remove('form__hide');
-        document.getElementsByClassName('js--rangliste')[0].classList.add('rangliste__hide');
+        showForm();
+        // renderForm();
+
 
     });
 });

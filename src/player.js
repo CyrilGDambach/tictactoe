@@ -3,7 +3,11 @@ export const player = {
     fname: '',
     lname: '',
     email: '',
-    gender: ''
+    gender: '',
+    win: '',
+    loss: '',
+    draw: ''
+
 };
 
 export const players = [];
@@ -28,10 +32,14 @@ const playerz = {
     email: 'timolaut@tmail.com',
     gender: 'männlich'
 };
-
 players.push(playerx);
 players.push(playery);
 players.push(playerz);
+sessionStorage.setItem('playerss',
+    JSON.stringify(players));
+var data = JSON.parse(sessionStorage.getItem('playerss'));
+console.log(data);
+console.log(data[2].uname);
 console.log(players);
 
 export const addPlayer = (player) => {
@@ -39,5 +47,5 @@ export const addPlayer = (player) => {
 }
 
 // export const getPlayers = () => {
-//     return players;
+//     4 5 ä56+98q
 // }

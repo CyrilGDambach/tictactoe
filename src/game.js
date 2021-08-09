@@ -6,8 +6,8 @@ const defaultGame = {
 };
 
 const texts = {
-    'de': {
-        'playerOnePlaying': 'Player %0% ist am zug'
+    de: {
+        playerOnePlaying: 'Player %0% ist am zug'
     }
 }
 
@@ -25,10 +25,16 @@ let game = createGame();
 const archive = [];
 
 export const initNewGame = () => {
-    archive.push(game);
     game = createGame();
-};
+    //TODO:archive muss nach spiel gespeichert werden
+    archive.push(game);
+    sessionStorage.setItem('gameArchive', JSON.stringify(getGameArchive().concat(archive)));
 
+};
+const getGameArchive = () => {
+    return JSON.parse(sessionStorage.getItem('gameArchive'));
+}
+console.log(getGameArchive());
 window.model = game;
 
 export const getGame = () => game;
