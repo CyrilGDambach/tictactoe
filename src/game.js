@@ -26,11 +26,22 @@ const archive = [];
 
 export const initNewGame = () => {
     game = createGame();
-    //TODO:archive muss nach spiel gespeichert werden
-    archive.push(game);
-    sessionStorage.setItem('gameArchive', JSON.stringify(getGameArchive().concat(archive)));
+    console.log('init new game');
 
 };
+export const archiveGame = () => {
+    archive.push(game);
+    console.log(getGameArchive());
+    if(getGameArchive() !== null){
+        sessionStorage.setItem('gameArchive', JSON.stringify(getGameArchive().concat(archive)));
+        console.log(getGameArchive());
+    }
+    else{
+        sessionStorage.setItem('gameArchive', JSON.stringify(archive));
+        console.log(getGameArchive());
+    }
+
+}
 const getGameArchive = () => {
     return JSON.parse(sessionStorage.getItem('gameArchive'));
 }

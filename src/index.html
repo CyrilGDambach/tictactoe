@@ -5,8 +5,7 @@
     <title>TicTacToe</title>
     <link rel="stylesheet" type="text/css" href="style.css" media="screen"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="jumbotron text-center">
@@ -17,7 +16,7 @@
 <div class="container js--container">
     <div class="row">
         <div class="col-sm-3">
-            <section class="container__player-one">
+            <section class="js--container__player container__player">
                 <p>
                 <h2>Player 1</h2>
                 </p>
@@ -25,10 +24,10 @@
         </div>
         <div class="col-sm-6">
             <p class="js--ticker ticker"></p>
-            <div class="columns__gameboard js--gameboard"></div>
+            <div class="container__gameboard js--gameboard"></div>
         </div>
         <div class="col-sm-3">
-            <section class="columns__player--two">
+            <section class="js--container__player--two container__player container__player--two">
                 <p>
                 <h2>Player 2</h2>
                 </p>

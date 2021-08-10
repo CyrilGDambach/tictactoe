@@ -35,17 +35,21 @@ const playerz = {
 players.push(playerx);
 players.push(playery);
 players.push(playerz);
-sessionStorage.setItem('playerss',
-    JSON.stringify(players));
+
+
+sessionStorage.setItem('playerss',JSON.stringify(players));
 var data = JSON.parse(sessionStorage.getItem('playerss'));
+
+
+/*
 console.log(data);
 console.log(data[2].uname);
 console.log(players);
+*/
 
 export const addPlayer = (player) => {
     players.push(player);
 }
 
 // export const getPlayers = () => {
-//     4 5 ä56+98q
 // }

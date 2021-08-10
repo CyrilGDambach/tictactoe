@@ -1,4 +1,4 @@
-import {getGame} from "./game.js";
+import {getGame, archiveGame} from "./game.js";
 import {setTicker} from "./ticker.js";
 
 const handleGame = ({target}, render) => {
@@ -24,24 +24,28 @@ const handleGame = ({target}, render) => {
                 console.log(turn);
                 console.log('player 1 has won!');
                 setTicker('Player 1 hat gewonnen.');
+                archiveGame();
 
             }
             if (turn === 1) {
                 console.log(turn);
                 console.log('player 2 has won!');
                 setTicker('Player 2 hat gewonnen.');
+                archiveGame();
             }
         } else if (!game.buttons.includes('') && game.over !== true) {
             console.log('Unentschieden');
             const u = 'Unentschieden';
             game.over = true;
-
             setTicker(u);
+            archiveGame();
         }
 
     }
     /*    console.log(game.buttons + ' ----- ' + game.buttons.length);*/
+/*
     console.log(game);
+*/
     render(game);
 };
 export default handleGame;

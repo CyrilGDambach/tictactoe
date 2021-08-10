@@ -1,7 +1,11 @@
 import {players, addPlayer, player} from './player.js';
+import {match, setMatch} from "./match.js";
 
 const renderEl = document.querySelector('.js--formular');
-const renderEl2 = document.querySelector('.columns__player--one');
+
+/*
+const renderEl3 = document.querySelector('.js--container__player--two');
+*/
 /*
 const renderButtonSubmit = ({buttonName, name, email}) =>
     `<button type='submit' class='btn btn-default js--button__submit'>${buttonName}</button>`;*/
@@ -9,7 +13,7 @@ const renderButtonSubmit = ({buttonName, name, email}) =>
 const renderFormHTML = () => {
     // TODO: make hide as modifier
     renderEl.innerHTML =
-        `<form class='form js--form form--hide' action='#' onsubmit='submitForm();return false'>
+        `<form class='form js--form form--hide'>
    <div>
      <label>Benutzername:
        <input type='text' name='uname' value='Cyrilo' class='js--form__uname'>
@@ -63,7 +67,7 @@ export const renderForm = () => {
     renderFormHTML();
     document.querySelector('.js--button__back').addEventListener('click', hideForm);
     document.querySelector('.js--form__uname').addEventListener('keyup', onKeyUp);
-
+    enableSubmitListener();
 }
 
 export const hideForm = () => {
@@ -76,40 +80,58 @@ export const showForm = () => {
 }
 /*    renderPlayer = () => {
     }*/
-//COMPOSITION
-const submitForm = () => {
-    console.log('submit');
-    const data = new FormData(e.currentTarget);
-    let obj = {};
 
-    for (let [key, value] of data) {
-        obj[key] = value;
-    }
-    console.log(obj);
-    if (players.includes(obj.uname)) {
-        obj = null;
-    } else {
-        addPlayer(obj);
-    }
-    console.log(players);
-/*
-    addPlayer()
-*/
-    renderEl2.classList.add('columns__player--one');
-
-    const player1 = players[players.length-1].uname;
-    renderEl2.innerHTML = `<p><h2>${player1}</h2></p>`;
-
-    hideForm();
-}
-
-const onKeyUp = (e1) => {
+const getUsernames = () => {
     const usernames = [];
 
     for (let p = 0; p < players.length; p++) {
         usernames.push(players[p].uname);
     }
     console.log(usernames);
+    return usernames;
+}
+
+//COMPOSITION
+const enableSubmitListener = () => {
+    document.querySelector('.js--form').addEventListener('submit', onSubmit);
+    /*
+        renderEl2.classList.add('columns__player--one');
+    */
+    /*
+        const player1 = players[players.length-1].uname;
+        renderEl2.innerHTML = `<p><h2>${player1}</h2></p>`;
+        */
+}
+
+const onSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    console.log('submit');
+
+    let obj = {};
+
+    for (let [key, value] of data) {
+        obj[key] = value;
+    }
+    console.log(obj);
+    const {uname} = obj;
+    console.log(obj.uname);
+    console.log(uname);
+    if (getUsernames().includes(uname)) {
+        console.log('helloooo');
+        obj = null;
+    } else {
+        addPlayer(obj);
+    }
+    console.log(players);
+
+    setMatch(uname);
+
+    hideForm();
+}
+
+const onKeyUp = (e1) => {
+    const usernames = getUsernames();
 
     function checkPlayerExists() {
         return usernames.includes(e1.currentTarget.value);
@@ -136,26 +158,5 @@ const onKeyUp = (e1) => {
     }
 }
 
+
 /*renderForm();*/
-/*
-document.querySelector('.js--button__submit').addEventListener('click',){
-
-}
-
-document.querySelector('.js--form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    let obj = {};
-
-    for (let [key, value] of data) {
-        obj[key] = value;
-    }
-    console.log(obj);
-    if (players.includes(obj.uname)) {
-        obj = null;
-    } else {
-        addPlayer(obj);
-    }
-    console.log(players);
-});
-*/

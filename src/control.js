@@ -7,9 +7,6 @@ import {renderRankHTML} from "./rangliste.js";
 // import {gtPlayers} from "./player";
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log("test")
-
-    console.log("test2");
     initNewGame();
     render(getGame());
     renderForm();
