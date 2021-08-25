@@ -76,6 +76,7 @@ export const setMatchPlayer = (newPlayer) => {
     if (match.result !== OPEN) {
         /*
                 archiveMatch();
+
         */
     }
 }
