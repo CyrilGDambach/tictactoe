@@ -20,8 +20,13 @@
     margin: 0;
 }
 
+.gameboard__button:disabled {
+    background-color: #F0F0F0;
+}
+
 .gameboard__button--x {
     background-size: cover;
+
     background-image: url('../img/x.png');
 }
 
@@ -30,20 +35,17 @@
     background-image: url('../img/o.png');
 }
 
-.formular {
-    margin-bottom: 2rem;
-}
-
 .ticker {
     text-align: center;
     height: 3rem;
     color: #141619;
 }
 
-.columns {
+.container__buttons {
     display: flex;
 }
-.container__player{
+
+.container__player {
     margin: auto auto auto;
     color: skyblue;
 }
@@ -62,13 +64,13 @@
     width: 15rem;
 }
 
-.form {
-    position: absolute;
+.user-reg__form {
+    position: relative;
     margin: 5rem;
     display: block;
 }
 
-.form--hide {
+.user-reg--hide {
     display: none;
 }
 
@@ -80,7 +82,15 @@
     display: none;
 }
 
-.rangliste {
+.ranking {
     margin-top: 38rem;
     position: absolute;
+}
+
+.user-reg__error {
+    position: absolute;
+    margin-left: 5rem;
+    color: red;
+    font-style: italic;
+    font-size: x-large;
 }

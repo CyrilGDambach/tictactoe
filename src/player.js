@@ -4,52 +4,32 @@ export const player = {
     lname: '',
     email: '',
     gender: '',
-    win: '',
-    loss: '',
-    draw: ''
+    rank: '',
+    win: 0,
+    loss: 0,
+    draw: 0
 
 };
 
 export const players = [];
-const playerx = {
-    uname: 'cyrilo',
-    fname: 'cyril',
-    lname: 'dambach',
-    email: 'cyrildambach@gmail.com',
-    gender: 'männlich'
-};
-const playery = {
-    uname: 'simomaaa',
-    fname: 'simona',
-    lname: 'lalala',
-    email: 'sifa@mail.ch',
-    gender: 'weiblich'
-};
-const playerz = {
-    uname: 'timolein',
-    fname: 'timo',
-    lname: 'lauter',
-    email: 'timolaut@tmail.com',
-    gender: 'männlich'
-};
-players.push(playerx);
-players.push(playery);
-players.push(playerz);
 
 
-sessionStorage.setItem('playerss',JSON.stringify(players));
+const incrementPropertyOfPlayer = (player, propName) => player[propName] += 1;
+
+const getPlayerByUname = findString => players.find(({ uname }) => findString === uname);
+
+export const setWin = winner => incrementPropertyOfPlayer(getPlayerByUname(winner), 'win');
+export const setDraw = (p1, p2) => {
+    incrementPropertyOfPlayer(getPlayerByUname(p1), 'draw');
+    incrementPropertyOfPlayer(getPlayerByUname(p2), 'draw');
+}
+export const setLoss = looser => incrementPropertyOfPlayer(getPlayerByUname(looser), 'loss');
+
+
+export const archivePlayer = (storagePlayers) => sessionStorage.setItem('playerss', JSON.stringify(storagePlayers));
 var data = JSON.parse(sessionStorage.getItem('playerss'));
-
-
-/*
-console.log(data);
-console.log(data[2].uname);
-console.log(players);
-*/
+export const getPlayerData = () => data;
 
 export const addPlayer = (player) => {
     players.push(player);
 }
-
-// export const getPlayers = () => {
-// }
