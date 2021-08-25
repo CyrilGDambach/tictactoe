@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (/* event */) => {
     render(getGame());
     renderForm();
     renderRankHTML();
-//TODO: Buttons disable as long as there arent two players
+    //TODO: Buttons disable as long as there arent two players
     document.querySelector('.js--button__replay').addEventListener('click', (e) => {
         initNewGame();
         matchStart();
